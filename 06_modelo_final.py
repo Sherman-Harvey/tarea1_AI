@@ -122,12 +122,7 @@ real_values = testset_original[targets].reset_index(drop=True)
 errors = real_values - predictions
 
 metrics_test = pandas.DataFrame({
-    "MAE": errors.abs().mean(),
-    "RMSE": (errors.pow(2).mean()) ** 0.5,
-    "R2": 1 - (
-        errors.pow(2).sum()
-        / (real_values - real_values.mean()).pow(2).sum()
-    )
+    "MAE": errors.abs().mean()
 })
 
 print("\nMÉTRICAS DEL TEST EN UNIDADES ORIGINALES")
@@ -174,4 +169,3 @@ for position, target in enumerate(targets):
 
 plt.tight_layout()
 plt.show()
-
